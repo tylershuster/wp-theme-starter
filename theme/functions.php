@@ -51,19 +51,14 @@ if ( ! function_exists( 'theme_setup' ) ) {
 		) );
 
 
-		// Let wp know we want to use post thumbnails
-		/*
 		add_theme_support( 'post-thumbnails' );
-		*/
 
 
 		// Register navigation menus for theme
-		/*
 		register_nav_menus( array(
-			'primary' => 'Main Menu',
-			'footer'  => 'Footer Menu'
+			'primary' => 'Main Menu'
 		) );
-		*/
+
 
 
 		// Let wp know we are going to handle styling galleries
