@@ -7,7 +7,7 @@
 ?>
 
 
-<?php // common footer content goes here ?>
+<footer class="site__footer"></footer>
 
 
 
