@@ -11,8 +11,4 @@ import './vendor/webpack.publicPath';
  * here...
  */
 
-// silly example:
-import obj from './scripts/example';
 
-/* eslint no-console: 0 */
-console.log(obj);
