@@ -27,8 +27,5 @@
 	<?php wp_head(); ?>
 </head>
 <body class="site__body">
-<?php // <body> closes in footer.php ?>
 
-
-
-<?php // common header content goes here ?>
+	<header class="site__header"></header>
