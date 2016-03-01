@@ -11,8 +11,16 @@
 // examples:
 
 // containers
-$d_container_max: 540px;
+$d_container_max: 60rem;
+
+$d_media_mobile: 480px;
+
+$d_media_tablet: 768px;
+
+$d_media_laptop: 960px;
+
+$d_media_desktop: 1200px;
 
 
 // gutters
-$d_default_gutter: 20px;
+$d_default_gutter: 1rem;
