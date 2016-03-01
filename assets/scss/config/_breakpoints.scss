@@ -14,10 +14,10 @@
 // examples:
 
 // mobile first queries
-$b_mobile:  '(min-width: 400px)';
+$b_mobile:  '(min-width: #{$d_media_mobile})';
 
-$b_tablet:  '(min-width: 600px)';
+$b_tablet:  '(min-width: #{$d_media_tablet})';
 
-$b_laptop:  '(min-width: 800px)';
+$b_laptop:  '(min-width: #{$d_media_laptop})';
 
-$b_desktop: '(min-width: 1024px)';
+$b_desktop: '(min-width: #{$d_media_desktop})';
