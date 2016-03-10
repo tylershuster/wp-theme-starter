@@ -26,6 +26,6 @@
 
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class( 'site__body' ); ?>">
+<body <?php body_class( 'site__body' ); ?>>
 
 	<header class="site__header"></header>
