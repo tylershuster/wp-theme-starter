@@ -1,1 +1,10 @@
 .site__header {}
+
+.post-edit-link {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	padding: $d_default_gutter;
+	background-color: white;
+}

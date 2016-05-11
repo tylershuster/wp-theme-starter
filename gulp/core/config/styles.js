@@ -34,9 +34,9 @@ module.exports = deepMerge({
 				'ie >= 9'
 			]
 		},
-		minify: {
-			autoprefixer: false,
-			discardComments: { removeAll: true }
-		}
+		// minify: {
+		// 	autoprefixer: false,
+		// 	discardComments: { removeAll: true }
+		// }
 	}
 }, overrides);

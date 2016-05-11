@@ -9,6 +9,11 @@
  */
 
 // examples:
+$edit-mode: false;
+$theme: OpenSans;
+
+@import '../../../node_modules/gutenberg-web-type/src/style/gutenberg.scss';
+
 
 // font family
 $t_font_display: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
@@ -16,4 +21,4 @@ $t_font_display: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue"
 $t_font_body: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 
 // font size
-$t_size_base: 16px;
+// $t_size_base: 16px;

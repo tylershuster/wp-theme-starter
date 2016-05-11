@@ -15,7 +15,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	
+
 	<title><?php wp_title(); ?></title>
 
 	<?php // replace the no-js class to js on the html element ?>
@@ -27,5 +27,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class( 'site__body' ); ?>>
+
+	<?php if( current_user_can( 'edit_posts' ) ) edit_post_link( 'Edit' ); ?>
 
 	<header class="site__header"></header>
