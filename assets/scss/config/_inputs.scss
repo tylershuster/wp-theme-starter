@@ -1,0 +1,70 @@
+button,
+[type=button],
+[type=submit],
+.button {
+	appearance: none;
+	border: 0;
+	border-radius: .25rem;
+	cursor: pointer;
+	font-family: $t_font_display;
+	padding: .5rem;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.button--hollow {
+	background: transparent;
+	border: 1px solid currentColor;
+}
+
+.button--white {
+	color: $c_white;
+}
+
+select {
+	border: 0;
+	border-radius: .25rem;
+	font-family: $t_font_display;
+}
+
+
+[type=text],
+[type=email],
+textarea {
+	background: transparent;
+	border: 1px solid;
+	border-radius: .25rem;
+	font-size: inherit;
+	max-width: 100%;
+	padding: .5rem;
+}
+
+.wpcf7-form-control-wrap {
+	display: block;
+
+	input,
+	textarea {
+		width: 100%;
+	}
+}
+
+::-webkit-input-placeholder {
+	color: currentColor;
+	opacity: .5;
+}
+
+:-moz-placeholder { // Firefox 18-
+	color: currentColor;
+	opacity: .5;
+}
+
+::-moz-placeholder { // Firefox 19+
+	color: currentColor;
+	opacity: .5;
+}
+
+:-ms-input-placeholder {
+	color: currentColor;
+	opacity: .5;
+}

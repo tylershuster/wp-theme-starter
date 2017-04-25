@@ -8,7 +8,7 @@
 
 /* =========================================
 		ACTION HOOKS & FILTERS
-   ========================================= */
+	 ========================================= */
 
 /**--- Actions ---**/
 
@@ -28,7 +28,7 @@ add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
 /* =========================================
 		HOOKED Functions
-   ========================================= */
+	 ========================================= */
 
 /**--- Actions ---**/
 
@@ -55,9 +55,27 @@ if ( ! function_exists( 'theme_setup' ) ) {
 
 
 		// Register navigation menus for theme
+
+		$main_menu_name = 'Main Menu';
 		register_nav_menus( array(
-			'primary' => 'Main Menu'
+			'primary' => $main_menu_name
 		) );
+
+		if(!wp_get_nav_Menu_object($main_menu_name)) {
+			$menu_id = wp_create_nav_menu($main_menu_name);
+			wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title' => __('Home'),
+				'menu-item-classes' => 'home',
+				'menu-item-url' => home_url('/'),
+				'menu-item-status' => 'publish'
+			));
+
+			// http://stackoverflow.com/questions/19401556/automatically-setting-a-menu-on-location-primary-menu-on-theme-activation
+			$locations = get_theme_mod('nav_menu_locations');
+			$locations['primary'] = $menu_id;
+			set_theme_mod('nav_menu_locations', $locations);
+		}
+
 
 
 
@@ -108,6 +126,17 @@ if ( ! function_exists( 'theme_setup' ) ) {
 		include "$theme_dir/library/library-loader.php";
 		include "$theme_dir/includes/includes-loader.php";
 		include "$theme_dir/components/components-loader.php";
+
+		if ( function_exists('register_sidebar') ) {
+			register_sidebar(array(
+				'name' => "Footer Widgets",
+				'id' => 'footer__widgets',
+				'before_widget' => '<div class="footer__widget">',
+				'after_widget' => '</div>',
+				'before_title' => '<h2 class="widget__title">',
+				'after_title' => '</h2>',
+			));
+		}
 	}
 }
 
@@ -171,4 +200,74 @@ if ( ! function_exists( 'theme_scripts_localize' ) ) {
 			'ajax'  => add_query_arg( $ajax_url_params, admin_url( 'admin-ajax.php' ) )
 		) );
 	}
+}
+
+if(!function_exists('detect_browser')) {
+	function detect_browser() {
+	if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
+		return 'ie';
+	elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== FALSE) //For Supporting IE 11
+		return 'ie';
+	elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Edge') !== FALSE) //For Supporting IE 11
+		return 'edge';
+	elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') !== FALSE)
+		return 'firefox';
+	elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE)
+		return 'chrome';
+	elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== FALSE)
+		return "opera";
+	elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') !== FALSE)
+		return "opera";
+	elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Safari') !== FALSE)
+		return "safari";
+	else
+		return 'unknown-browser';
+	}
+}
+
+function wpcf7_ajax_loader () {
+	return  get_stylesheet_directory_uri() . '/assets/svg/loader.svg';
+}
+add_filter('wpcf7_ajax_loader', 'wpcf7_ajax_loader');
+
+
+function responsive_image($path) {
+	$sizes = array(
+		'mobile' => 480,
+		'tablet' => 768,
+		'laptop' => 960,
+		'desktop' => 1200
+	);
+	preg_match('/(.+)\.(\w+)$/', $path, $parts);
+	$base_path = get_stylesheet_directory() . '/assets/img/' . $parts[1];
+	$base_uri = get_stylesheet_directory_uri() . '/assets/img/' . $parts[1];
+	$extension = $parts[2];
+	$return_str = '';
+	foreach($sizes as $size => $dimension) {
+		if($size === 'mobile') {
+			$size = '';
+		} else {
+			$size = "--{$size}";
+		}
+		if(file_exists($base_path . $size . '.' . $extension)) {
+			$return_str .= "{$base_uri}{$size}.{$extension} {$dimension}w, ";
+		}
+	}
+	return $return_str;
+}
+
+function PS_SVG ($path) {
+	// Helper function to replace responsive images
+	$svg = MOZ_SVG::get_svg($path);
+	$svg = str_replace('ROOT_URL', get_bloginfo('home'), $svg);
+	preg_match('/data-responsive="(.+)"/', $svg, $php);
+	if($php[1]) {
+		$image = responsive_image($php[1]);
+		$svg = str_replace(
+			$php[0],
+			"data-srcset=\"{$image}\" data-sizes=\"auto\"",
+			$svg
+		);
+	}
+	echo $svg;
 }

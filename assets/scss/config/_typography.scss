@@ -1,18 +1,6 @@
-/* =========================================
-		Typography
-   ========================================= */
-/**
- * Prefix typography vars with $t_
- * to make them easier to find with
- * autocomplete
- *
- */
-
 // examples:
 $edit-mode: false;
 $theme: OpenSans;
-
-@import '../../../node_modules/gutenberg-web-type/src/style/gutenberg.scss';
 
 
 // font family
@@ -20,5 +8,26 @@ $t_font_display: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue"
 
 $t_font_body: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 
-// font size
-// $t_size_base: 16px;
+$t_size_base: 1rem;
+
+$t_ratio: 1.25;
+
+@function font-size($scale) {
+	$scale: round($scale);
+	$ratio: $t_ratio;
+	$font-size: $t_size_base;
+	@if($scale > 0) {
+		@for $i from 1 through $scale {
+			$font-size: $font-size * $ratio;
+		}
+	} @else if ($scale == 0) {
+		$font-size: $font-size;
+	} @else {
+		$ratio: 1 / $ratio;
+		$scale: abs($scale);
+		@for $i from 1 through $scale {
+			$font-size: $font-size * $ratio;
+		}
+	}
+	@return $font-size;
+}

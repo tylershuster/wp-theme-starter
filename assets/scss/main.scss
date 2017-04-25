@@ -1,12 +1,12 @@
 /**
  * Global Project Specific Variables
  */
-@import "config/paths";
-@import "config/colors";
-@import "config/typography";
-@import "config/dimensions";
-@import "config/breakpoints";
-
+@import 'config/paths';
+@import 'config/colors';
+@import 'config/typography';
+@import 'config/dimensions';
+@import 'config/breakpoints';
+@import 'config/inputs';
 
 
 /**
@@ -14,30 +14,30 @@
  */
 
 // utilities
-@import "helpers/functions/opposite-direction";
-@import "helpers/functions/parseInt";
-@import "helpers/functions/easing";
+@import 'helpers/functions/opposite-direction';
+@import 'helpers/functions/parseInt';
+@import 'helpers/functions/easing';
 
-@import "helpers/mixins/rem";
-@import "helpers/mixins/bp";
+@import 'helpers/mixins/rem';
+@import 'helpers/mixins/bp';
 
 // styling utilities
-@import "helpers/mixins/fit";
-@import "helpers/mixins/list";
-@import "helpers/mixins/reset";
-@import "helpers/mixins/clearfix";
-@import "helpers/mixins/nocollapse";
-@import "helpers/mixins/visuallyhidden";
+@import 'helpers/mixins/fit';
+@import 'helpers/mixins/list';
+@import 'helpers/mixins/reset';
+@import 'helpers/mixins/clearfix';
+@import 'helpers/mixins/nocollapse';
+@import 'helpers/mixins/visuallyhidden';
 
 // css shapes
-@import "helpers/mixins/shape-triangle";
+@import 'helpers/mixins/shape-triangle';
 
 // form elements
-@import "helpers/mixins/range";
-@import "helpers/mixins/placeholder";
+@import 'helpers/mixins/range';
+@import 'helpers/mixins/placeholder';
 
 // transitions
-@import "helpers/mixins/cascade";
+@import 'helpers/mixins/cascade';
 
 
 
@@ -53,16 +53,15 @@
  * ( - Not Modified for Maintainability - )
  * ( - Reset/Normalize First - )
  */
-@import "vendor/polyfill.object-fit";
-@import "vendor/moz-backround-picture";
+@import 'vendor/polyfill.object-fit';
+@import 'vendor/moz-backround-picture';
 
 
 
 /**
  * Your Custom Styles
  */
-@import "elements/site";
-@import "elements/hero";
-@import "elements/header";
-@import "elements/footer";
-@import "elements/page-home";
+@import 'elements/site';
+@import 'elements/header';
+@import 'elements/footer';
+@import 'elements/page-home';

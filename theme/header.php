@@ -21,13 +21,13 @@
 	<?php // replace the no-js class to js on the html element ?>
 	<script>document.documentElement.className=document.documentElement.className.replace(/\sno-js\s/,'js')</script>
 
-	<?php // load the core js polyfills ?>
-	<script async defer src="<?php echo get_template_directory_uri(); ?>/assets/js/core.js"></script>
-
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class( 'site__body' ); ?>>
+<body <?php body_class( 'site__body ' . detect_browser() ); ?>>
 
 	<?php if( current_user_can( 'edit_posts' ) ) edit_post_link( 'Edit' ); ?>
 
-	<header class="site__header"></header>
+	<header class="site__header">
+		<?php MOZ_SVG::svg('logo'); ?>
+		<?php MOZ_Menu::nav_menu('primary', array('menu_class' => 'menu--primary menu')); ?>
+	</header>

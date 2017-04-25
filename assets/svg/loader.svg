@@ -1,0 +1,25 @@
+<svg id="loader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 250 250">
+  <defs>
+    <style>
+      #loader .clip {
+        clip-path: url(#loader-clip-path);
+      }
+
+      #loader circle {
+        fill: url(#loader-linear-gradient);
+      }
+    </style>
+    <clipPath id="loader-clip-path" transform="translate(0 0)">
+      <path fill="none" d="M125,250A125,125,0,1,1,250,125,125.14,125.14,0,0,1,125,250Zm0-233.39A108.39,108.39,0,1,0,233.38,125,108.51,108.51,0,0,0,125,16.62Z"/>
+    </clipPath>
+    <linearGradient id="loader-linear-gradient" y1="125" x2="250" y2="125" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#02a2de"/>
+      <stop offset="1" stop-color="#0d222d"/>
+    </linearGradient>
+  </defs>
+  <g class="clip">
+    <circle cx="125" cy="125" r="125">
+      <!-- <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 125 125" to="360 125 125" dur="3s" repeatCount="indefinite"></animateTransform> -->
+    </circle>
+  </g>
+</svg>

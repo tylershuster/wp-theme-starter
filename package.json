@@ -65,6 +65,7 @@
   "dependencies": {
     "babel-polyfill": "6.5.0",
     "lazysizes": "1.4.0",
-    "picturefill": "3.0.2"
+    "picturefill": "3.0.2",
+    "svg.js": "^2.6.1"
   }
 }
