@@ -1,7 +1,7 @@
 .site__header {}
 
 .post-edit-link {
-	background-color: white;
+	background-color: $c_white;
 	bottom: 0;
 	margin: 0;
 	padding: $d_default_gutter;
@@ -10,7 +10,18 @@
 }
 
 ul.menu--primary {
+	display: none;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+}
+
+@include bp($b_laptop) {
+	ul.menu--primary {
+		display: block;
+	}
+
+	select.menu--primary--mobile {
+		display: none;
+	}
 }

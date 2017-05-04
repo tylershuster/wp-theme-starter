@@ -1,3 +1,3 @@
-<svg id="logo">
-	<text>Logo</text>
+<svg id="logo" viewbox="0 0 300 100" width="300" height="100">
+	<text x="0" y="75" font-size="100">Logo</text>
 </svg>

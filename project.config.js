@@ -20,7 +20,7 @@
  * }
  */
 module.exports = {
-	name: 'you_should_probably_change_this',
+	name: 'test_com',
 	prettyName: 'You should probably change this...',
 
 	description: 'The 2015 theme for {Example.com}. Built by John & Jane Doe for {Example}',

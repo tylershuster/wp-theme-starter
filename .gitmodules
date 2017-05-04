@@ -1,0 +1,3 @@
+[submodule "assets/scss/vendor/sakura"]
+	path = assets/scss/vendor/sakura
+	url = https://github.com/oxalorg/sakura.git

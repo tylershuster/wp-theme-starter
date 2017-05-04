@@ -10,12 +10,33 @@ $t_font_body: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", C
 
 $t_size_base: 1rem;
 
+$t_size_base_relative: 1em;
+
 $t_ratio: 1.25;
 
-@function font-size($scale) {
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function font-size($scale, $relative: false) {
 	$scale: round($scale);
 	$ratio: $t_ratio;
 	$font-size: $t_size_base;
+	@if $relative == true {
+		$font-size: $t_size_base_relative;
+ 	}
 	@if($scale > 0) {
 		@for $i from 1 through $scale {
 			$font-size: $font-size * $ratio;
@@ -30,4 +51,56 @@ $t_ratio: 1.25;
 		}
 	}
 	@return $font-size;
+}
+
+// https://css-tricks.com/snippets/css/fluid-typography/
+@mixin responsive-font($min_size, $max_size, $min_width: $d_media_mobile, $max_width: $d_media_desktop) {
+	$min_size: inspect($min_size);
+	$max_size: inspect($max_size);
+	$min_width: inspect($min_width);
+	$max_width: inspect($max_width);
+	font-size: $max_size;
+	font-size: calc(#{$min_size} + (#{str-replace($max_size, 'px', '')} - #{str-replace($min_size, 'px', '')}) * ((100vw - #{$min_width}) / (#{str-replace($max_width, 'px', '')} - #{str-replace($min_width, 'px', '')})));
+}
+
+html {
+	@include responsive-font(12px, 16px);
+	color: $ca_txt_body;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+h1 {
+	font-size: font-size(5);
+}
+
+h2 {
+	font-size: font-size(4);
+}
+
+h3 {
+	font-size: font-size(3);
+}
+
+h4 {
+	font-size: font-size(2);
+}
+
+h5 {
+	font-size: font-size(1);
+}
+
+h6 {
+	font-size: font-size(0);
+}
+
+a {
+	color: $c_primary;
+
+	&:hover {
+		color: $c_secondary;
+	}
+}
+
+ul {
+	padding-left: 1rem;
 }

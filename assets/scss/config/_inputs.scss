@@ -1,16 +1,25 @@
 button,
 [type=button],
 [type=submit],
+[type=reset],
 .button {
 	appearance: none;
 	border: 0;
 	border-radius: .25rem;
 	cursor: pointer;
 	font-family: $t_font_display;
-	padding: .5rem;
+	font-size: font-size(0, true);
+	line-height: font-size(1, true);
+	padding: .25rem .5rem;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
+
+	&[disabled] {
+		cursor: default;
+		opacity: .5;
+	}
+
 }
 
 .button--hollow {
@@ -26,18 +35,28 @@ select {
 	border: 0;
 	border-radius: .25rem;
 	font-family: $t_font_display;
+	font-size: font-size(0, true);
+	line-height: font-size(1, true);
+	padding: .25rem .5rem;
 }
 
 
 [type=text],
 [type=email],
+[type=search],
 textarea {
 	background: transparent;
-	border: 1px solid;
+	border: 1px solid currentColor;
 	border-radius: .25rem;
-	font-size: inherit;
+	font-size: font-size(0, true);
+	line-height: font-size(1, true);
 	max-width: 100%;
-	padding: .5rem;
+	padding: .25rem .5rem;
+
+	&:focus {
+		outline: 1px solid $c_accent;
+		outline-offset: 1px;
+	}
 }
 
 .wpcf7-form-control-wrap {
