@@ -8,6 +8,8 @@ import './utils/utils.js';
 
 import 'lazysizes';
 
+import stickybits from 'stickybits';
+
 // import 'svg.js'; // Uncomment to use SVG.js library
 
 window.headerFixed = false;
@@ -18,7 +20,9 @@ window.lazyLoads = {};
 window.headerOffset = 48;
 window.offset = 0;
 
-jQuery(document).ready(($) => {
+jQuery(document).ready($ => {
+	stickybits('.sticky', {useStickyClasses: true});
+
 	window.headerOffset = $('.site__header').height();
 	window.headerBuffer = 0;
 	window.bufferCapacity = window.headerOffset * 5;

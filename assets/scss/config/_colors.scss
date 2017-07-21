@@ -1,16 +1,13 @@
-/* =========================================
-		Color Index
-   ========================================= */
-/**
- * Prefix colors with $c_ this
- * makes them easily findable
- * with auto complete
- *
- * Give colors their names in the
- * index. This makes it easier to
- * arrange them reasonably in the
- * index
- */
+// Color Index
+
+// Prefix colors with $c_ this
+// makes them easily findable
+// with auto complete
+//
+// Give colors their names in the
+// index. This makes it easier to
+// arrange them reasonably in the
+// index
 
 // examples:
 
@@ -21,10 +18,6 @@ $c_white: #fff;
 $c_gray: #d3d3d3;
 
 $c_yellow: #ffd939;
-
-$c_red: #f00;
-
-$c_green: #0f0;
 
 $c_blue_dark: #0d222d;
 
@@ -39,29 +32,16 @@ $c_secondary: $c_blue_dark;
 $c_accent: $c_yellow;
 
 
-/* =========================================
-		Colors Applied
-   ========================================= */
-/**
- * Prefix applied colors with $ca_
- * this makes them easily findable
- * with auto complete
- *
- * Define where colors where and how
- * colors are used. This makes it
- * easier to use them in the rest
- * of the sass code
- */
+// Colors Applied
 
-// examples:
-
-// state
-$ca_highlight: blueviolet;
-
-$ca_error: $c_red;
-
-$ca_success: $c_green;
-
+// Prefix applied colors with $ca_
+// this makes them easily findable
+// with auto complete
+//
+// Define where colors where and how
+// colors are used. This makes it
+// easier to use them in the rest
+// of the sass code
 
 // elements
 $ca_bg_body: transparent;
@@ -73,3 +53,6 @@ $ca_txt_display: $c_black;
 $ca_txt_body: $c_black;
 
 $ca_txt_highlight: $c_blue_light;
+
+
+$s_box_shadow: 0 0 3px rgba($c_black, .3);

@@ -11,6 +11,16 @@ img {
 	max-width: 100%;
 }
 
+a {
+	color: $ca_txt_highlight;
+	cursor: pointer;
+	transition: $t_default_duration color $t_default_easing;
+
+	&:hover {
+		color: $c_accent;
+	}
+}
+
 .site,
 .site__body {
 	font-family: $t_font_body;
@@ -20,11 +30,7 @@ img {
 	scroll-behavior: smooth;
 }
 
-.wrapper {
-	margin: 0 auto;
-	max-width: $d_media_laptop;
-
-	&--large {
-		max-width: $d_media_desktop;
-	}
+.site__body {
+	background-color: $ca_bg_body;
+	color: $ca_txt_body;
 }

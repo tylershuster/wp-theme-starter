@@ -1,3 +1,5 @@
+// Some utilities. You may find them useful.
+
 window.preventDefault = event => {
 	const e = event || window.event;
 	if (e.preventDefault) {
@@ -82,7 +84,7 @@ window.createMenuItem = (item, depth = 0) => {
 	let text = jQuery(item.el).children('a').text();
 	let i;
 	for (i = 0; i < depth; i++) {
-		text = '- ${text}';
+		text = `- ${text}`;
 	}
 	returnStr += `<option value="${link}">${text}</option>`;
 	if (item.children) {

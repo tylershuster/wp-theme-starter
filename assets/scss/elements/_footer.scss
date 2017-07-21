@@ -1,1 +1,44 @@
-.site__footer {}
+.site__footer {
+	box-shadow: $s_box_shadow;
+	padding-top: $d_default_gutter;
+}
+
+#footer__widgets {
+	.wrapper {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+	}
+
+}
+
+.footer__widget {
+	flex: 1 1 100%;
+}
+
+#colophon {
+	background-color: $c_secondary;
+	color: $c_primary;
+
+	.wrapper {
+		align-content: center;
+		align-items: center;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		padding-bottom: $d_default_gutter;
+		padding-top: $d_default_gutter;
+	}
+}
+
+@include bp($b_tablet) {
+	.footer__widget {
+		flex: 1 1 50%;
+	}
+}
+
+@include bp($b_laptop) {
+	.footer__widget {
+		flex: 1 1 25%;
+	}
+}

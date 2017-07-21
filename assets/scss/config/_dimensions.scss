@@ -1,12 +1,8 @@
-/* =========================================
-		Dimensions
-   ========================================= */
-/**
- * Prefix dimensions with $d_
- * to make them easier to find
- * with autocomplete
- *
- */
+// Dimensions
+
+// Prefix dimensions with $d_
+// to make them easier to find
+// with autocomplete
 
 // examples:
 
@@ -21,6 +17,20 @@ $d_media_laptop: 960px;
 
 $d_media_desktop: 1200px;
 
-
 // gutters
 $d_default_gutter: 1rem;
+
+@mixin wrapper {
+	margin: 0 auto;
+	max-width: $d_media_desktop;
+	padding: 0 $d_default_gutter;
+
+	@media (min-width: #{$d_media_desktop}) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.wrapper {
+	@include wrapper;
+}
