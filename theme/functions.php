@@ -23,8 +23,31 @@ add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 // add_action( 'wp_enqueue_scripts', 'theme_scripts_localize', 20 );
 
 /**--- Filters ---**/
-
-
+add_filter( 'allow_dev_auto_core_updates', '__return_true' );
+add_filter( 'allow_minor_auto_core_updates', '__return_true' );
+add_filter( 'allow_major_auto_core_updates', '__return_true' );
+add_filter( 'auto_update_theme', '__return_true' );
+function auto_update_specific_plugins ( $update, $item ) {
+    // Array of plugin slugs to always auto-update
+    $plugins = array ( 
+        'contact-form-7',
+        'wordpress-seo',
+	'better-search-replace',
+	'mainwp-child',
+	'simple-sitemap',
+	'all-in-one-wp-security-and-firewall',
+	'wordfence',
+	'contact-form-7-to-database-extension',
+	'wp-meta-seo',
+	'wp-deploy-flow'
+    );
+    if ( in_array( $item->slug, $plugins ) ) {
+        return true; // Always update plugins in this array
+    } else {
+        return $update; // Else, use the normal API response to decide whether to update or not
+    }
+}
+add_filter( 'auto_update_plugin', 'auto_update_specific_plugins', 10, 2 );
 
 /* =========================================
 		HOOKED Functions
